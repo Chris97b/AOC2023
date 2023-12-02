@@ -35,9 +35,7 @@ void Day1()
 int IsNum(std::string S, int Pos)
 	{
 	if (isdigit(S.at(Pos)))
-		{
 		return S.at(Pos) - '0';
-		}
 	if (S.substr(Pos, 3) == "one")
 		return 1;
 	if (S.substr(Pos, 3) == "two")
