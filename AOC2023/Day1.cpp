@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include "Day1.h"
+#include "Utils.h"
 
 void Day1()
 	{
@@ -29,30 +30,4 @@ void Day1()
 			}
 		std::cout << "Total: " << Total << std::endl;
 		}
-	}
-
-
-int IsNum(std::string S, int Pos)
-	{
-	if (isdigit(S.at(Pos)))
-		return S.at(Pos) - '0';
-	if (S.substr(Pos, 3) == "one")
-		return 1;
-	if (S.substr(Pos, 3) == "two")
-		return 2;
-	if (S.substr(Pos, 5) == "three")
-		return 3;
-	if (S.substr(Pos, 4) == "four")
-		return 4;
-	if (S.substr(Pos, 4) == "five")
-		return 5;
-	if (S.substr(Pos, 3) == "six")
-		return 6;
-	if (S.substr(Pos, 5) == "seven")
-		return 7;
-	if (S.substr(Pos, 5) == "eight")
-		return 8;
-	if (S.substr(Pos, 4) == "nine")
-		return 9;
-	return -1;
 	}

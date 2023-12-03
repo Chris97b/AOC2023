@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include "Utils.h"
 
 
 #define REDMAX 12
@@ -72,20 +73,3 @@ void Day2()
 
 
 
-std::vector<std::string> Explode(char D, std::string S)
-	{
-	std::vector<std::string> V;
-	std::string Buf = "";
-	for (int i = 0; i < S.length(); i++)
-		{
-		if (S.at(i) == D)
-			{
-			V.push_back(Buf);
-			Buf = "";
-			}
-		else
-			Buf.append(1, S.at(i));
-		}
-	V.push_back(Buf);
-	return V;
-	}
