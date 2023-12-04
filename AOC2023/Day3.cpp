@@ -24,11 +24,8 @@ struct PartNum
 
 void Day3()
 	{
-	std::ifstream Infile("Day3.txt");
-	if (Infile.is_open())
-		{
-		std::string Contents((std::istreambuf_iterator<char>(Infile)), (std::istreambuf_iterator<char>()));
-		std::vector<std::string> LineArr = Explode('\n', Contents);
+	 std::string Contents = FileGetContents("Day3.txt");
+	 std::vector<std::string> LineArr = Explode('\n', Contents);
 		std::vector<PartNum> PossibleParts;
 		
 		//Parts
@@ -153,4 +150,3 @@ void Day3()
 		std::cout << "Gear Total: " << GearTotal << std::endl;
 
 		}
-	}

@@ -1,4 +1,6 @@
 #include "Utils.h"
+#include <fstream>
+
 
 
 int IsNum(std::string S, int Pos)
@@ -35,14 +37,39 @@ std::vector<std::string> Explode(char D, std::string S)
 		{
 		if (S.at(i) == D)
 			{
-			V.push_back(Buf);
+			if (Buf.size() > 0)
+				V.push_back(Buf);
 			Buf = "";
 			}
 		else
 			Buf.append(1, S.at(i));
 		}
-	V.push_back(Buf);
+	if(Buf.size() > 0)
+	 V.push_back(Buf);
 	if (V[V.size() - 1] == "")
 		V.pop_back();
 	return V;
+	}
+
+
+std::string FileGetContents(std::string Filename)
+	{
+	std::ifstream Infile(Filename);
+	std::string Contents = "";
+	if (Infile.is_open())
+		 Contents.assign((std::istreambuf_iterator<char>(Infile)), (std::istreambuf_iterator<char>()));
+	Infile.close();
+	return Contents;
+	}
+
+
+std::string Trim(std::string Input)
+	{
+	if (Input.size() == 0)
+		return Input;
+	if (Input.at(0) == ' ')
+		Input = Input.substr(1);
+	if (Input.at(Input.size()-1) == ' ')
+	 Input = Input.substr(0, Input.size() - 2);
+	return Input;
 	}
