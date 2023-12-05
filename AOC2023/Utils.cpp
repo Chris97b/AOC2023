@@ -29,7 +29,7 @@ int IsNum(std::string S, int Pos)
 	}
 
 
-std::vector<std::string> Explode(char D, std::string S)
+std::vector<std::string> Explode(char D, std::string S, bool T)
 	{
 	std::vector<std::string> V;
 	std::string Buf = "";
@@ -38,14 +38,22 @@ std::vector<std::string> Explode(char D, std::string S)
 		if (S.at(i) == D)
 			{
 			if (Buf.size() > 0)
+				{
+				if (T)
+					Buf = Trim(Buf);
 				V.push_back(Buf);
+				}
 			Buf = "";
 			}
 		else
 			Buf.append(1, S.at(i));
 		}
-	if(Buf.size() > 0)
-	 V.push_back(Buf);
+	if (Buf.size() > 0)
+		{
+		if (T)
+			Buf = Trim(Buf);
+		 V.push_back(Buf);
+		}
 	if (V[V.size() - 1] == "")
 		V.pop_back();
 	return V;
