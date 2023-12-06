@@ -75,9 +75,9 @@ std::string Trim(std::string Input)
 	{
 	if (Input.size() == 0)
 		return Input;
-	if (Input.at(0) == ' ')
+	while (Input.at(0) == ' ')
 		Input = Input.substr(1);
-	if (Input.at(Input.size()-1) == ' ')
+	while (Input.at(Input.size()-1) == ' ')
 	 Input = Input.substr(0, Input.size() - 2);
 	return Input;
 	}
