@@ -27,7 +27,6 @@ void Day7()
 		int Num = 0;
 		for (int i = 0; i < 5; i++)
 			{
-			//std::cout << "Checking " << SortedHand << std::endl;
 			if (SortedHand.at(i) != Current)
 				{
 				if (Num > 1)
@@ -44,7 +43,6 @@ void Day7()
 			if (i == 4 && Num > 1)
 				NumMatchGroups++;
 			}
-		//std::cout << "Hand '" << Hand << "' has " << NumMatchGroups << " Groups and MaxGroup " << MaxMatchGroup << std::endl;
 		if (MaxMatchGroup == 5)
 			FiveOfAKind.push_back(Hand);
 		else if (MaxMatchGroup == 4)
@@ -123,86 +121,6 @@ void Day7()
 		JFiveOfAKind.push_back(H);
 		}
 
-
-	//std::cout << "Five of a kind:" << std::endl;
-	//for (std::string H : FiveOfAKind)
-	//	std::cout << H << std::endl;
-	//std::cout << std::endl << std::endl;
-
-	//std::cout << "Four of a kind:" << std::endl;
-	//for (std::string H : Quads)
-	//	std::cout << H << std::endl;
-	//std::cout << std::endl << std::endl;
-
-	/*std::cout << "Boat:" << std::endl;
-	for (std::string H : Boat)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;*/
-
-	//std::cout << "Trips:" << std::endl;
-	//for (std::string H : Trips)
-	//	std::cout << H << std::endl;
-	//std::cout << std::endl << std::endl;
-
-	//std::cout << "Two Pair:" << std::endl;
-	//for (std::string H : TwoPair)
-	//	std::cout << H << std::endl;
-	//std::cout << std::endl << std::endl;
-
-	//std::cout << "Pair:" << std::endl;
-	//for (std::string H : Pair)
-	//	std::cout << H << std::endl;
-	//std::cout << std::endl << std::endl;
-
-	//std::cout << "High Card:" << std::endl;
-	//for (std::string H : HighCard)
-	//	std::cout << H << std::endl;
-	//std::cout << std::endl << std::endl;
-
-
-
-
-	//With Jokers
-
-	/*std::cout << "Five of a kind:" << std::endl;
-	for (std::string H : JFiveOfAKind)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Four of a kind:" << std::endl;
-	for (std::string H : JQuads)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Boat:" << std::endl;
-	for (std::string H : JBoat)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Trips:" << std::endl;
-	for (std::string H : JTrips)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Two Pair:" << std::endl;
-	for (std::string H : JTwoPair)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Pair:" << std::endl;
-	for (std::string H : JPair)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;
-
-	std::cout << "High Card:" << std::endl;
-	for (std::string H : JHighCard)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;*/
-
-
-	
-
-
 	std::sort(FiveOfAKind.begin(), FiveOfAKind.end(), &CompareHands);
 	std::sort(Quads.begin(), Quads.end(), &CompareHands);
 	std::sort(Boat.begin(), Boat.end(), &CompareHands);
@@ -220,11 +138,6 @@ void Day7()
 	std::sort(JPair.begin(), JPair.end(), &JCompareHands);
 	std::sort(JHighCard.begin(), JHighCard.end(), &JCompareHands);
 
-	/*std::cout << "Sorted Boats:" << std::endl;
-	for (std::string H : Boat)
-		std::cout << H << std::endl;
-	std::cout << std::endl << std::endl;*/
-
 
 	long long Total = 0;
 	int Mult = FiveOfAKind.size() + Quads.size() + Boat.size() + Trips.size() + TwoPair.size() + Pair.size() + HighCard.size();
@@ -236,9 +149,7 @@ void Day7()
 			if (Lines[i].substr(0, 5) == H)
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
-				//std::cout << Lines[i] << std::endl;
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Five of a Kind " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				Total += (Bid * Mult);
 				Mult--;
 				}
@@ -255,7 +166,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Four of a Kind " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				Total += (Bid * Mult);
 				Mult--;
 				}
@@ -270,7 +180,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Full House " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				Total += (Bid * Mult);
 				Mult--;
 				}
@@ -285,7 +194,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Three of a Kind " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				Total += (Bid * Mult);
 				Mult--;
 				}
@@ -300,7 +208,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Two Pair " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				Total += (Bid * Mult);
 				Mult--;
 				}
@@ -315,7 +222,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Pair " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				Total += (Bid * Mult);
 				Mult--;
 				}
@@ -330,19 +236,13 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is High Card " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				Total += (Bid * Mult);
 				Mult--;
 				}
 			}
 		}
 
-
-
 	std::cout << "P1 Total: " << Total << std::endl;
-
-
-
 
 
 	long long JTotal = 0;
@@ -355,9 +255,7 @@ void Day7()
 			if (Lines[i].substr(0, 5) == H)
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
-				//std::cout << Lines[i] << std::endl;
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Five of a Kind " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				JTotal += (Bid * Mult);
 				Mult--;
 				}
@@ -374,7 +272,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Four of a Kind " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				JTotal += (Bid * Mult);
 				Mult--;
 				}
@@ -389,7 +286,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Full House " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				JTotal += (Bid * Mult);
 				Mult--;
 				}
@@ -404,7 +300,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Three of a Kind " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				JTotal += (Bid * Mult);
 				Mult--;
 				}
@@ -419,7 +314,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Two Pair " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				JTotal += (Bid * Mult);
 				Mult--;
 				}
@@ -434,7 +328,6 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is Pair " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				JTotal += (Bid * Mult);
 				Mult--;
 				}
@@ -449,17 +342,13 @@ void Day7()
 				{
 				std::vector<std::string> HArr = Explode(' ', Lines[i]);
 				int Bid = stoi(HArr[1]);
-				std::cout << "Rank " << Mult << ": [" << H << "] is High Card " << "Bid=" << Bid << " Running Total=" << Total << std::endl;
 				JTotal += (Bid * Mult);
 				Mult--;
 				}
 			}
 		}
 
-
 	std::cout << "P2 Total: " << JTotal << std::endl;
-
-
 
 	}
 
