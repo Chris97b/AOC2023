@@ -133,6 +133,7 @@
     <ClCompile Include="Day4.cpp" />
     <ClCompile Include="Day5.cpp" />
     <ClCompile Include="Day6.cpp" />
+    <ClCompile Include="Day7.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
@@ -143,6 +144,7 @@
     <ClInclude Include="Day4.h" />
     <ClInclude Include="Day5.h" />
     <ClInclude Include="Day6.h" />
+    <ClInclude Include="Day7.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
