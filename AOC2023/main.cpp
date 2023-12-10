@@ -7,6 +7,7 @@
 #include "Day6.h"
 #include "Day7.h"
 #include "Day8.h"
+#include "Day9.h"
 
 
 int main(int argc, char** argv)
@@ -18,7 +19,8 @@ int main(int argc, char** argv)
 	//Day5();
 	//Day6();
 	//Day7();
-	Day8();
+	//Day8();
+	Day9();
 
 	return 0;
 	}
